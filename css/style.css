@@ -1,0 +1,80 @@
+body { font-family: 'Plus Jakarta Sans', sans-serif; }
+.card-hover { transition: all 0.3s ease; }
+.card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); }
+    
+/* Chatbot Styles - Mobile Responsive Width */
+.chatbot-container {
+  position: fixed; bottom: 90px; right: 16px; z-index: 50;
+  display: none; flex-direction: column; 
+  width: calc(100% - 32px); /* Full width on mobile minus padding */
+  max-width: 360px; /* Max width on desktop */
+  max-height: 500px;
+  background: white; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden; animation: slideUp 0.3s ease-out;
+}
+@media (min-width: 640px) { .chatbot-container { right: 30px; width: 360px; } }
+.chatbot-container.active { display: flex; }
+    
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    
+.chatbot-header { background: #0d9488; color: white; padding: 15px; display: flex; align-items: center; gap: 10px; }
+.chatbot-body { flex: 1; padding: 15px; background: #f9fafb; overflow-y: auto; }
+.chat-message { background: white; padding: 12px 15px; border-radius: 10px; margin-bottom: 12px; font-size: 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); border-left: 4px solid #0d9488; }
+    
+.chat-options button {
+  display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; background: white;
+  border: 1px solid #e5e7eb; padding: 12px; border-radius: 8px; margin-top: 8px;
+  cursor: pointer; transition: all 0.2s; font-size: 14px; font-weight: 500;
+}
+.chat-options button:hover { background: #f0fdfa; border-color: #14b8a6; color: #0f766e; transform: translateX(5px); }
+.chat-options button i { width: 20px; text-align: center; }
+
+/* AI Check Icon Styles */
+.ai-icon-box {
+    width: 50px; height: 50px; border-radius: 12px;
+    background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: white; box-shadow: 0 4px 6px rgba(124, 58, 237, 0.2);
+}
+
+.comparison-container { position: relative; width: 100%; max-width: 600px; margin: 0 auto; border-radius: 1rem; overflow: hidden; }
+.comparison-img { display: block; width: 100%; height: 300px; object-fit: cover; }
+.comparison-overlay { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; z-index: 5; }
+.comparison-overlay img { position: absolute; top: 0; left: 0; width: 200%; height: 100%; object-fit: cover; }
+.comparison-slider { position: absolute; top: 0; bottom: 0; width: 4px; background: white; left: 50%; transform: translateX(-50%); cursor: ew-resize; z-index: 10; }
+.comparison-slider::after { content: "< >"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; color: #333; padding: 8px; border-radius: 50%; font-size: 12px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+
+/* Video Card Styles */
+.service-video-box { position: relative; height: 220px; overflow: hidden; }
+.service-video-box video { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.card-hover:hover .service-video-box video { transform: scale(1.05); }
+.video-gradient-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%); }
+
+/* About Us Image Hover */
+.about-img-container { overflow: hidden; border-radius: 1rem; }
+.about-img-container img { transition: transform 0.5s ease; }
+.about-img-container:hover img { transform: scale(1.1); }
+    
+/* Pricing Table Styles */
+.pricing-table th, .pricing-table td { text-align: center; padding: 0.75rem; border-bottom: 1px solid #e5e7eb; }
+.pricing-table th:first-child, .pricing-table td:first-child { text-align: left; }
+
+/* Floating Action Buttons - Mobile Positioning */
+.action-btn {
+    width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: all 0.2s; border: none; cursor: pointer;
+}
+.action-btn:hover { transform: scale(1.1); }
+
+/* Horizontal FAQ Styles */
+.faq-section { padding: 40px 16px; background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%); }
+@media (min-width: 640px) { .faq-section { padding: 60px 20px; } }
+.faq-box { background: #ffffff; border: 2px solid #bfdbfe; border-radius: 12px; padding: 16px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1); }
+.faq-box:hover { transform: translateY(-2px); }
+.faq-number { width: 32px; height: 32px; background: #0284c7; color: #ffffff; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; flex-shrink: 0; }
+.faq-question { font-weight: 500; font-size: 14px; color: #0c4a6e; line-height: 1.4; }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; color: #0369a1; font-size: 14px; line-height: 1.6; padding-left: 44px; }
+.faq-answer.open { max-height: 800px; padding-top: 16px; }
+.chevron { width: 20px; height: 20px; color: #f97316; transition: transform 0.3s ease; flex-shrink: 0; }
+.chevron.rotated { transform: rotate(180deg); }
+
